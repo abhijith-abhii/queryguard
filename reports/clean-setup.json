@@ -1,0 +1,9 @@
+{
+  "slug": "queryguard",
+  "fresh_venv": "work/clean-envs/queryguard",
+  "fresh_checkout": "work/clean/queryguard",
+  "passed": true,
+  "failure": null,
+  "runtime": "Python 3.12.14",
+  "model_training": null
+}

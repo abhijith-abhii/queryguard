@@ -1,0 +1,42 @@
+{
+  "answer": "SELECT category,ROUND(SUM(cents)/100.0,2) AS revenue_usd FROM orders GROUP BY category ORDER BY revenue_usd DESC",
+  "bars": [
+    {
+      "label": "Books",
+      "value": 7312.0
+    },
+    {
+      "label": "Electronics",
+      "value": 6489.5
+    },
+    {
+      "label": "Home",
+      "value": 5635.5
+    }
+  ],
+  "details": {
+    "execution": "SQLite read-only URI, authorizer, instruction and row budgets",
+    "parameters": [],
+    "planner": "Deterministic intent grammar; no LLM"
+  },
+  "metrics": {
+    "Access": "read-only",
+    "Intent": "Revenue by category",
+    "Rows": 3
+  },
+  "notice": "Synthetic sales data. This deliberately bounded interface rejects unsupported questions rather than guessing SQL.",
+  "rows": [
+    {
+      "category": "Books",
+      "revenue_usd": 7312.0
+    },
+    {
+      "category": "Electronics",
+      "revenue_usd": 6489.5
+    },
+    {
+      "category": "Home",
+      "revenue_usd": 5635.5
+    }
+  ]
+}
