@@ -23,11 +23,15 @@ Follow the README installation block, then: Ask for revenue by category, monthly
 
 ## Five interview questions
 
-1. **What problem does this project solve, and what is its unit of work?** Explain ask bounded sales questions safely, identify business analysts as the audience, and trace one concrete example through the files above. Use the demonstration output rather than hypothetical impact.
-2. **Why did you choose the first design decision?** Map supported natural-language intents to fixed query templates with bound parameters. Show the corresponding implementation and a test that would fail if that property were removed.
-3. **How do you protect correctness when inputs or execution change?** Enforce read-only access through SQLite URI mode, an authorizer allowlist, and a VM instruction budget. Explain the relevant invalid-input or edge-case test and distinguish a checked property from an untested assumption.
-4. **How do you make results inspectable and reproducible?** Reject unsupported questions instead of generating arbitrary SQL that only looks plausible. Point to actual outputs and recorded commands. Explain why a successful example is weaker evidence than a tested boundary or independently reconciled total.
-5. **What would you improve before real deployment or real-data use?** A constrained natural-language parser, not a generative text-to-SQL model. It supports five documented business intents on a synthetic table. No joins, arbitrary schemas, multi-tenant permissions or semantic clarification dialogue. Choose one limitation, describe the missing evidence, and propose a measurable acceptance check rather than promising production readiness.
+1. **How does natural language become SQL?** A constrained deterministic grammar recognizes five supported business-question intents and selects parameterized SQL templates. It is not a general-purpose generative SQL model.
+
+2. **Why are SQL templates safer here?** The table names, operations and query shapes are known in advance. User values become bound parameters rather than arbitrary executable SQL fragments.
+
+3. **What protects the database if an unsafe statement slips through?** The connection is read-only and an authorizer restricts permitted tables and functions. A VM execution budget and row limit bound resource usage and output size.
+
+4. **What happens to an unsupported question?** It produces a clear rejection instead of guessing a query. The browser retains the previous successful result and identifies it as previous output.
+
+5. **How would you extend the interface?** Add one intent with an explicit template, parameter validation and positive/negative examples. A generative planner would require a new threat model and stronger evaluation.
 
 ## Independent exercise
 
@@ -41,6 +45,6 @@ The implementation was developed with substantial AI assistance under Abhijith V
 
 Suggested factual bullet after personally validating the demo:
 
-- Implemented and validated ask bounded sales questions safely using SQLite · Flask, with five supported natural-language business intents and documented correctness checks and limitations.
+- Built a five-intent natural-language sales interface using parameterized SQL, read-only authorization and execution limits; verified 15 correctness and rejection checks.
 
 Use [VERIFICATION.md](VERIFICATION.md) to add only measured numbers. Do not claim production traffic, users, savings, upstream acceptance or cloud deployment without corresponding evidence.

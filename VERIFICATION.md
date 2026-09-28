@@ -5,7 +5,7 @@ Verification date: 28 September 2026. Tests and examples were executed; they are
 - Project checks: 15 passed.
 - Dependency/setup verification: fresh isolated Python 3.12 environment passed.
 - Main browser/API workflow: verified locally; actual result saved in reports/example-output.json.
-- Publication: pending remote verification.
+- Publication: [public repository](https://github.com/abhijith-abhii/queryguard) verified under **abhijith-abhii**.
 - Actual application screenshot: reports/screenshots/app.png. Browser rendered successfully at 1280px width.
 - Browser error path: DROP TABLE request rejected with a clear message; prior successful result preserved.
 
@@ -14,3 +14,9 @@ Verification date: 28 September 2026. Tests and examples were executed; they are
 - `reports/clean-setup.json`: isolated setup result where applicable.
 - `reports/publication-check.json`: credential-pattern and file audit.
 - `DATA_AND_SOURCES.md`: source and license notes.
+
+## GitHub verification
+
+- [Verify: passed](https://github.com/abhijith-abhii/queryguard/actions/runs/36416668094)
+
+Verified source revision: `662fb1e842b0e3cdbd75427a9c800447847a5206`. Subsequent presentation-only changes do not change that implementation evidence.
